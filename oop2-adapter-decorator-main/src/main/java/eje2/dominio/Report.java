@@ -23,17 +23,19 @@ public class Report implements ExportarReporte {
 
 		try {
 			this.escribir = new FileWriter(file);
-			PrintWriter lineaEscritura = new PrintWriter(escribir);
+			lineaEscritura = new PrintWriter(escribir);
 			lineaEscritura.println(reporte);
+			
 		} catch (IOException e) {
 			throw new IllegalArgumentException("Error al escribir el archivo: " + e.getMessage());
 		} finally {
 			try {
-				escribir.close();
-				lineaEscritura.close();
+				this.escribir.close();
+				this.lineaEscritura.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
 		}
 
 	}

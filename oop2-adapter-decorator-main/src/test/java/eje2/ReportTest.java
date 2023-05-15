@@ -1,6 +1,5 @@
 package eje2;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -23,15 +22,7 @@ class ReportTest {
 		NoSobrescribirExportarReporte miReporte = new NoSobrescribirExportarReporte(
 				new Report(LocalDate.now().toString()));
 
-//		String mensajeRecibido = "";
-//
-//		try {
-//			miReporte.export(archivo);
-//		} catch (IllegalArgumentException e) {
-//			mensajeRecibido = e.getMessage();
-//		}
-//		assertEquals("El archivo ya existe...", mensajeRecibido);
-		assertThrows(RuntimeException.class, () -> miReporte.export(null));
+		assertThrows(RuntimeException.class, () -> miReporte.export(archivo));
 
 	}
 
@@ -40,14 +31,6 @@ class ReportTest {
 
 		Report miReporte = new Report(LocalDate.now().toString());
 
-//		String mensajeRecibido = "";
-//
-//		try {
-//			miReporte.export(null);
-//		} catch (IllegalArgumentException e) {
-//			mensajeRecibido = e.getMessage();
-//		}
-//		assertEquals("File es NULL; no puedo exportar...", mensajeRecibido);
 		assertThrows(RuntimeException.class, () -> miReporte.export(null));
 	}
 

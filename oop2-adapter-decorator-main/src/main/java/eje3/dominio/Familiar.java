@@ -2,14 +2,17 @@ package eje3.dominio;
 
 public class Familiar implements Combo {
 
-	private String descripcion;
-	private Integer precio;
+	private static final String DESCRIPCION = "Combo familiar: 4 hamburguesas, 4 tomates, 4 quesos, 4 papas.";
+	private static final Integer PRECIO = 1200;
 
-	public Familiar(String descripcion, Integer precio) {
-		this.descripcion = descripcion;
-		this.precio = precio;
+	@Override
+	public void conocerDescripcion() {
+		System.out.println(DESCRIPCION);
 	}
 
-	
+	@Override
+	public Integer conocerPrecio() {
+		return Familiar.PRECIO;
+	}
 
 }

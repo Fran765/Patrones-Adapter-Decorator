@@ -1,10 +1,19 @@
 package eje4.main;
 
+import eje4.dominio.ApiCall;
+import eje4.dominio.EnArchivoAlmacenar;
+import eje4.dominio.EnBaseAlmacenar;
+import eje4.dominio.RegistroException;
 import eje4.dominio.RestCall;
 
 public class Main {
 	public static void main(String[] args) {
-		RestCall rest = new RestCall("https://jsonplaceholder.typicode.com/posts");
-		System.out.println(rest.run());
+		ApiCall rest = new EnArchivoAlmacenar(new EnBaseAlmacenar(new RestCall("https://jsonplaceholder.typicode.com/posts"), ""), "RegistroPunto4");
+		try {
+			System.out.println(rest.run());
+		} catch (RegistroException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
